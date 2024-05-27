@@ -3,6 +3,8 @@
 
 int main() {
     printf("Hello, World!\n");
-    printf("How are you?!\n");
+    printf("Hello user, this is pulled from github\n");
+    printf("Time to do somethin differnet?\n");
+    printf("Hello user, this is pulled from github\n");
     return 0;
 }
