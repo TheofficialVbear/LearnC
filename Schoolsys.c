@@ -19,7 +19,6 @@ void introtext() {
    printf("1) Add to the list\n");
    printf("2) Edit a user\n");
    printf("3) Delete a user\n");
-   printf("3) Delete a user\n");
    printf("4) Print list\n");
    printf("5) Show information from ID\n");
    printf("6) Exit the program\n");
@@ -30,7 +29,7 @@ int UserChoice() {
     int choice;
     scanf("%d", &choice);
     while (choice < 1 || choice > 6) {
-        printf("Invalid choice. Please enter a number between 1 and 5: ");
+        printf("Invalid choice. Please enter a number between 1 and 6: ");
         scanf("%d", &choice);
     }
     return choice;
@@ -49,7 +48,6 @@ void determineWinner(int UserChoice) {
         printf("You chose 5\n");
     }else if(UserChoice == 6) {
         printf("You chose 6\n");
-        
     }else {
         printf("how??");
     }
