@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define MAX_NAME_LENGTH 50
-#define MAX_STUDENTS 3
+#define MAX_STUDENTS 4
 
 typedef struct {
     int id;
@@ -12,17 +12,17 @@ typedef struct {
     char grade;
 } Student;
 
-
 void printStudents(Student students[], int numStudents);
-void introtext();
-int UserChoice();
+
+
 void pickanum();
 
 // Initialize the list of students
 Student students[MAX_STUDENTS] = {
     {1, "John Doe", 20, 'A'},
     {2, "Jane Smith", 21, 'B'},
-    {3, "Bob Johnson", 19, 'A'}
+    {3, "Bob Johnson", 19, 'A'},
+    {4, "Something", 19, 'A'}
 };
 
 int numStudents = MAX_STUDENTS;
