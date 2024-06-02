@@ -5,7 +5,8 @@
 void printoutput();
 
 int main() {
-     printoutput();
+     
+    printoutput();
 
     return 0;
 }
@@ -14,12 +15,13 @@ int main() {
 void printoutput(){
     FILE *thefilename;
     thefilename = fopen("userlist.txt", "r"); 
-    char mylist[500];
+    char filecontent[500];
     if (thefilename != NULL) {
-        while (fgets(mylist, 500, thefilename)){
-        printf("%s", mylist);
+        while (fgets(filecontent, 500, thefilename)){
+        printf("%s", filecontent);
         }
     }else {
         printf("File not found");
     }
-    fclose(thefilename); }
+    fclose(thefilename); 
+    }

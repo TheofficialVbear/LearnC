@@ -2,82 +2,113 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_NAME_LENGTH 50
-#define MAX_STUDENTS 4
-
-typedef struct {
-    int id;
-    char name[MAX_NAME_LENGTH];
-    int age;
-    char grade;
-} Student;
-
-void printStudents(Student students[], int numStudents);
-
+char firstname[50];
+char lastname[50];
+int accountnumber;
+double accountsum;
+int loopnum = 1;
 
 void pickanum();
-
-// Initialize the list of students
-Student students[MAX_STUDENTS] = {
-    {1, "John Doe", 20, 'A'},
-    {2, "Jane Smith", 21, 'B'},
-    {3, "Bob Johnson", 19, 'A'},
-    {4, "Something", 19, 'A'}
-};
-
-int numStudents = MAX_STUDENTS;
+void mainmenu();
 
 int main() {
-
+    
    pickanum();
+   mainmenu();
    
     return 0;
 }
 
 void introtext() {
+    printf("\n\n\n\n\n\n\n\n-----------------------------------\n");
    printf("Welcome, what would you like to do?\n");
-   printf("1) Add to the list\n");
+   printf("1) Add a user to the list\n");
    printf("2) Edit a user\n");
    printf("3) Delete a user\n");
    printf("4) Print list\n");
    printf("5) Show information from ID\n");
-   printf("6) Exit the program\n");
+   printf("6) Go back\n");
    
 }
 
-void printStudents(Student students[], int numStudents) {
-    printf("List of students:\n");
-    for (int i = 0; i < numStudents; i++) {
-        printf("ID: %d, Name: %s, Age: %d, Grade: %c\n", students[i].id, students[i].name, students[i].age, students[i].grade);
+void printusers(){
+    FILE *thefilename;
+    thefilename = fopen("userlist.txt", "r"); 
+    char filecontent[500];
+    if (thefilename != NULL) {
+        while (fgets(filecontent, 500, thefilename)){
+        printf("%s", filecontent);
+        }
+    }else {
+        printf("File not found");
     }
-}
+    fclose(thefilename); 
+    }
 
+void adduser(){
+    printf("What is the firstname?\n");
+    scanf("%s", firstname);
+    printf("What is the lastname?\n");
+    scanf("%s", lastname);
+    printf("What is the accountnumber?\n");
+    scanf("%d", &accountnumber);
+    
+    FILE *thefilename;
+    thefilename = fopen("userlist.txt", "a"); 
+    
+    if (thefilename != NULL) {
+        fprintf(thefilename, ("\n%s %s %d"),firstname,lastname, accountnumber);
+        
+    }else {
+        printf("File not found");
+    }
+    fclose(thefilename); 
+    }
+void mainmenu() {
+    while (loopnum == 1){
+    printf("What would you like to do?\n");
+    printf("1) Are there more to do?\n");
+    printf("2) Finished?\n");
+    int choice;
+    scanf("%d", &choice);
+    if (choice == 1) {
+        pickanum();
+        mainmenu();
+        }else if(choice == 2) {
+            loopnum = 0;
+            break;
+
+    }else {
+        printf("Choose one or two");
+    }
+    }}
 void pickanum() {
-    while (1){
+    int loopnum = 1;
+    while (loopnum == 1){
         introtext();
         int choice;
         scanf("%d", &choice);
-        while (choice < 1 || choice > 6) {
-            printf("Invalid choice. Please enter a number between 1 and 6: ");
-            scanf("%d", &choice);
-        }
         if (choice == 1) {
-            printf("You chose 1\n");
+            printf("You chose 1, adding a user to the list\n");
+            adduser();
+            loopnum = 0;
         }else if(choice == 2) {
-            printf("You chose 2\n");
+            printf("You chose 2, edit a user\n");
+            loopnum = 0;
         }else if(choice == 3) {
-            printf("You chose 3\n");
+            printf("You chose 3, delete a user\n");
+            loopnum = 0;
         }else if(choice == 4) {
             printf("You chose 4\n");
-            printStudents(students, numStudents);
+            printusers();
+            loopnum = 0;
         }else if(choice == 5) {
             printf("You chose 5\n");
         }else if(choice == 6) {
-            printf("Exiting program...\n");
             break;
         }else {
-            printf("how??");
-            break;
+            printf("Invalid choice. Please enter a number between 1 and 6: ");
+            
         }
     }
 }
