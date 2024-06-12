@@ -13,15 +13,14 @@ void mainmenu();
 
 int main() {
     
-   pickanum();
+   
    mainmenu();
    
     return 0;
 }
 
 void introtext() {
-    printf("\n\n\n\n\n\n\n\n-----------------------------------\n");
-   printf("Welcome, what would you like to do?\n");
+   printf("\n\n\n-----------------------------------\nWelcome, what would you like to do?\n-----------------------------------\n\n\n");
    printf("1) Add a user to the list\n");
    printf("2) Edit a user\n");
    printf("3) Delete a user\n");
@@ -57,7 +56,7 @@ void adduser(){
     thefilename = fopen("userlist.txt", "a"); 
     
     if (thefilename != NULL) {
-        fprintf(thefilename, ("\n%s %s %d"),firstname,lastname, accountnumber);
+        fprintf(thefilename, ("%s %s %d\n"),firstname,lastname, accountnumber);
         
     }else {
         printf("File not found");
@@ -67,8 +66,8 @@ void adduser(){
 void mainmenu() {
     while (loopnum == 1){
     printf("What would you like to do?\n");
-    printf("1) Are there more to do?\n");
-    printf("2) Finished?\n");
+    printf("1) Run School program\n");
+    printf("2) Exit Program\n");
     int choice;
     scanf("%d", &choice);
     if (choice == 1) {
@@ -105,6 +104,7 @@ void pickanum() {
         }else if(choice == 5) {
             printf("You chose 5\n");
         }else if(choice == 6) {
+            loopnum = 0;
             break;
         }else {
             printf("Invalid choice. Please enter a number between 1 and 6: ");
