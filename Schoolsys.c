@@ -20,7 +20,7 @@ int main() {
 }
 
 void introtext() {
-   printf("\n\n\n-----------------------------------\nWelcome, what would you like to do?\n-----------------------------------\n\n\n");
+   printf("\n\n\n-----------------------------------\nStarting School Overview\n-----------------------------------\n");
    printf("1) Add a user to the list\n");
    printf("2) Edit a user\n");
    printf("3) Delete a user\n");
@@ -65,7 +65,7 @@ void adduser(){
     }
 void mainmenu() {
     while (loopnum == 1){
-    printf("What would you like to do?\n");
+        printf("\n\n\n-----------------------------------\nWelcome, what would you like to do?\n-----------------------------------\n\n");
     printf("1) Run School program\n");
     printf("2) Exit Program\n");
     int choice;
@@ -90,19 +90,19 @@ void pickanum() {
         if (choice == 1) {
             printf("You chose 1, adding a user to the list\n");
             adduser();
-            loopnum = 0;
         }else if(choice == 2) {
             printf("You chose 2, edit a user\n");
-            loopnum = 0;
+            
         }else if(choice == 3) {
             printf("You chose 3, delete a user\n");
-            loopnum = 0;
+            
         }else if(choice == 4) {
             printf("You chose 4\n");
             printusers();
-            loopnum = 0;
+            
         }else if(choice == 5) {
             printf("You chose 5\n");
+
         }else if(choice == 6) {
             loopnum = 0;
             break;

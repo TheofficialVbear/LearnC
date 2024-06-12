@@ -14,8 +14,3 @@ ID, Firstname, Lastname, Accountnumber, Amount
 13 Mia King 77889 1300.75
 14 Noah Moore 99112 120.50
 15 Olivia Adams 33478 950.80
-
-mareie lise 21321
-trond inge 2132131
-sdadsad sadsadas 123
-somethung else 131231
